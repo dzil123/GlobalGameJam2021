@@ -1,40 +1,43 @@
-extends Object
+class_name Folder
 
-# class_name Folder
+extends Resource
 
-export var name: String
-export var children: Array
-export var is_folder: bool = true
-export var is_solution: bool = false
+export (String) var name
+export (Array, Resource) var children  # Array[Folder]
+export (bool) var is_folder = true
+export (bool) var is_solution = false
 
-#func get_child(child_name: String) -> Folder:
-func get_child(child_name: String):
+
+func get_child(child_name: String) -> Folder:
 	if not is_folder:
 		return null
-	
+
 	for child in children:
 		if child.name == child_name:
 			return child
-	
+
 	return null
 
-#func add_child(child: Folder):
-func add_child(child):
+
+func add_child(child: Folder):
 	if not is_folder:
+		push_error("Tried to add child to file")
 		return null
+
 	children.append(child)
+	return child
+
 
 func add_child_new(child_name: String):
-	if not is_folder:
-		return null
-	
-	var child = load("res://Folder.gd").new()
+	var child = load(get_script().resource_path).new()
 	child.name = child_name
-	add_child(child)
-	return child
+
+	return add_child(child)
+
 
 func set_is_file():
 	is_folder = false
+
 
 func set_is_solution():
 	set_is_file()

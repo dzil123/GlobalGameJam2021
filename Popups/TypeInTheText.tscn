@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Popups/TypeInTheText.gd" type="Script" id=1]
+
+[node name="TypeInTheText" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 1.4142
+margin_top = 35.7089
+margin_right = 162.414
+margin_bottom = 59.7089
+placeholder_text = "type here"
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Sample text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_input"]

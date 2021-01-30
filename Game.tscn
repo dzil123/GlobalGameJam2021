@@ -1,13 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://ItemList.gd" type="Script" id=1]
-[ext_resource path="res://Panel.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://LabelTimer.gd" type="Script" id=4]
+[ext_resource path="res://Filesystem.gd" type="Script" id=1]
+[ext_resource path="res://ItemList.gd" type="Script" id=2]
+[ext_resource path="res://LabelTimer.gd" type="Script" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=4]
+[ext_resource path="res://Textures/file.png" type="Texture" id=5]
+[ext_resource path="res://Textures/empty.png" type="Texture" id=6]
+[ext_resource path="res://Textures/icon.png" type="Texture" id=7]
+[ext_resource path="res://Textures/solution.png" type="Texture" id=8]
+[ext_resource path="res://Popups/TypeInTheText.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Textures/folder.png" type="Texture" id=10]
+[ext_resource path="res://GenericModalPopup.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,7 +26,6 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="."]
 margin_right = 1023.0
 margin_bottom = 600.0
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -30,13 +40,20 @@ max_columns = 5
 same_column_width = true
 icon_mode = 0
 icon_scale = 0.2
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+fs = SubResource( 1 )
+GenericModalPopup = ExtResource( 11 )
+folder_tex = ExtResource( 10 )
+file_tex = ExtResource( 5 )
+solution_tex = ExtResource( 8 )
+empty_tex = ExtResource( 6 )
+popups = [ ExtResource( 9 ) ]
 
 [node name="Timer" type="Timer" parent="Panel/ItemList"]
-wait_time = 5.0
+wait_time = 200.0
 one_shot = true
 
 [node name="Label" type="Label" parent="Panel"]
@@ -54,7 +71,7 @@ margin_left = 424.0
 margin_top = 17.0
 margin_right = 488.0
 margin_bottom = 81.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,7 +81,7 @@ margin_left = 523.0
 margin_top = 22.0
 margin_right = 587.0
 margin_bottom = 86.0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,19 +92,7 @@ margin_top = 407.0
 margin_right = 293.0
 margin_bottom = 450.0
 text = "Time left: 0 s"
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AcceptDialog" type="AcceptDialog" parent="."]
-visible = true
-margin_left = 386.0
-margin_top = 224.0
-margin_right = 469.0
-margin_bottom = 282.0
-popup_exclusive = true
-dialog_text = "text"
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -107,7 +112,7 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="LoseDialog"]
 position = Vector2( 63, 27.7897 )
 scale = Vector2( 0.65625, 0.65625 )
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 
 [node name="WinDialog" type="WindowDialog" parent="."]
 visible = true
@@ -124,7 +129,7 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="WinDialog"]
 position = Vector2( 63, 27.7897 )
 scale = Vector2( 0.65625, 0.65625 )
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 [connection signal="item_activated" from="Panel/ItemList" to="Panel/ItemList" method="_on_ItemList_item_activated"]
 [connection signal="timeout" from="Panel/ItemList/Timer" to="Panel/ItemList" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Panel/TextureButton" to="Panel/ItemList" method="_on_TextureButton_pressed"]

@@ -8,16 +8,27 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "Filesystem",
+"language": "GDScript",
+"path": "res://Filesystem.gd"
+}, {
+"base": "Resource",
+"class": "Folder",
+"language": "GDScript",
+"path": "res://Folder.gd"
+} ]
 _global_script_class_icons={
-
+"Filesystem": "",
+"Folder": ""
 }
 
 [application]
 
 config/name="Chaser2"
-run/main_scene="res://Control.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Game.tscn"
+config/icon="res://Textures/icon.png"
 
 [rendering]
 
