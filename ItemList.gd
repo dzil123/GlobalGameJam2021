@@ -65,7 +65,7 @@ func _on_Filesystem_found_solution():
 
 
 func _on_Filesystem_changed_dir(path_str: String):
-	get_node(@"../TextureButton").visible = not fs.path.empty()
+	get_node(@"../UpButton").visible = not fs.path.empty()
 
 	clear()
 
@@ -100,4 +100,4 @@ func _on_Timer_timeout():
 
 
 func _on_RestartButton_pressed():
-	get_tree().change_scene("res://Control.tscn")
+	get_tree().reload_current_scene()

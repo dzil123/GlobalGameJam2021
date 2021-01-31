@@ -21,5 +21,6 @@ func _on_LineEdit_input(new_text):
 		emit_signal("unlocked")
 
 
-static func generate_password():
-	return "mollusks"
+func generate_password():
+	var arr = get_node(@"PasswordReader").text
+	return arr[randi() % arr.size()]

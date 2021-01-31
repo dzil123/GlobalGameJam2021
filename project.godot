@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Folder",
 "language": "GDScript",
 "path": "res://Folder.gd"
+}, {
+"base": "Object",
+"class": "Util",
+"language": "GDScript",
+"path": "res://Util.gd"
 } ]
 _global_script_class_icons={
 "Filesystem": "",
-"Folder": ""
+"Folder": "",
+"Util": ""
 }
 
 [application]

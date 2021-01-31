@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Filesystem.gd" type="Script" id=1]
 [ext_resource path="res://ItemList.gd" type="Script" id=2]
@@ -6,14 +6,25 @@
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://Textures/file.png" type="Texture" id=5]
 [ext_resource path="res://Textures/empty.png" type="Texture" id=6]
-[ext_resource path="res://Textures/icon.png" type="Texture" id=7]
+[ext_resource path="res://Textures/Arrow.png" type="Texture" id=7]
 [ext_resource path="res://Textures/solution.png" type="Texture" id=8]
 [ext_resource path="res://Popups/TypeInTheText.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Textures/folder.png" type="Texture" id=10]
 [ext_resource path="res://GenericModalPopup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Popups/Alert.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sounds/click.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Textures/RefeshButtons.png" type="Texture" id=14]
+[ext_resource path="res://Sounds/music.ogg" type="AudioStream" id=15]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/icon.png-978e27f0ae1614ea0b09d48180500d06.stex"
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 13 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -24,8 +35,9 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
+margin_top = 1.05945
 margin_right = 1023.0
-margin_bottom = 600.0
+margin_bottom = 601.059
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,7 +62,7 @@ folder_tex = ExtResource( 10 )
 file_tex = ExtResource( 5 )
 solution_tex = ExtResource( 8 )
 empty_tex = ExtResource( 6 )
-popups = [ ExtResource( 9 ) ]
+popups = [ ExtResource( 9 ), ExtResource( 12 ) ]
 
 [node name="Timer" type="Timer" parent="Panel/ItemList"]
 wait_time = 200.0
@@ -66,22 +78,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Panel"]
-margin_left = 424.0
-margin_top = 17.0
-margin_right = 488.0
-margin_bottom = 81.0
+[node name="UpButton" type="TextureButton" parent="Panel"]
+margin_left = 444.951
+margin_top = 27.4162
+margin_right = 497.951
+margin_bottom = 77.4162
 texture_normal = ExtResource( 7 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RestartButton" type="TextureButton" parent="Panel"]
-margin_left = 523.0
-margin_top = 22.0
-margin_right = 587.0
-margin_bottom = 86.0
-texture_normal = ExtResource( 7 )
+margin_left = 526.919
+margin_top = 23.7621
+margin_right = 577.919
+margin_bottom = 71.7621
+texture_normal = ExtResource( 14 )
+expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -112,7 +128,7 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="LoseDialog"]
 position = Vector2( 63, 27.7897 )
 scale = Vector2( 0.65625, 0.65625 )
-texture = ExtResource( 7 )
+texture = SubResource( 2 )
 
 [node name="WinDialog" type="WindowDialog" parent="."]
 visible = true
@@ -129,8 +145,15 @@ __meta__ = {
 [node name="icon" type="Sprite" parent="WinDialog"]
 position = Vector2( 63, 27.7897 )
 scale = Vector2( 0.65625, 0.65625 )
-texture = ExtResource( 7 )
+texture = SubResource( 2 )
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 3 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+autoplay = true
 [connection signal="item_activated" from="Panel/ItemList" to="Panel/ItemList" method="_on_ItemList_item_activated"]
 [connection signal="timeout" from="Panel/ItemList/Timer" to="Panel/ItemList" method="_on_Timer_timeout"]
-[connection signal="pressed" from="Panel/TextureButton" to="Panel/ItemList" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Panel/UpButton" to="Panel/ItemList" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Panel/RestartButton" to="Panel/ItemList" method="_on_RestartButton_pressed"]
