@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://GameManager.gd" type="Script" id=1]
+[ext_resource path="res://Nodes/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/StartMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/click.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/music.ogg" type="AudioStream" id=5]
+
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 4 )

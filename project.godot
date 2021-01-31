@@ -9,20 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
+"base": "Reference",
 "class": "Filesystem",
 "language": "GDScript",
-"path": "res://Filesystem.gd"
+"path": "res://Utils/Filesystem.gd"
 }, {
 "base": "Resource",
 "class": "Folder",
 "language": "GDScript",
-"path": "res://Folder.gd"
+"path": "res://Utils/Folder.gd"
 }, {
 "base": "Object",
 "class": "Passwords",
 "language": "GDScript",
-"path": "res://Passwords.gd"
+"path": "res://Utils/Passwords.gd"
 } ]
 _global_script_class_icons={
 "Filesystem": "",
@@ -42,7 +42,7 @@ driver=""
 
 [autoload]
 
-GameManager="*res://GameManager.tscn"
+GameManager="*res://Nodes/GameManager.tscn"
 
 [display]
 
@@ -53,4 +53,5 @@ window/stretch/aspect="keep"
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+quality/driver/driver_name="GLES2"
+environment/default_environment="res://Other/default_env.tres"

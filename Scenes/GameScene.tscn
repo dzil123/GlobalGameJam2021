@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://LabelTimer.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Game.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/LabelTimer.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameScene.gd" type="Script" id=2]
 [ext_resource path="res://Textures/folder.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=4]
-[ext_resource path="res://GenericModalPopup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Nodes/GenericModalPopup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Textures/Arrow.png" type="Texture" id=6]
 [ext_resource path="res://Textures/explorer.png" type="Texture" id=7]
 [ext_resource path="res://Popups/TypeInTheText.tscn" type="PackedScene" id=8]
@@ -14,8 +14,8 @@
 [ext_resource path="res://Textures/background.png" type="Texture" id=12]
 [ext_resource path="res://Textures/empty.png" type="Texture" id=13]
 [ext_resource path="res://Textures/solution.png" type="Texture" id=14]
-[ext_resource path="res://Filesystem.gd" type="Script" id=15]
-[ext_resource path="res://ItemList.gd" type="Script" id=16]
+[ext_resource path="res://Utils/Filesystem.gd" type="Script" id=15]
+[ext_resource path="res://Nodes/ItemList.gd" type="Script" id=16]
 [ext_resource path="res://Popups/Virus.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Popups/Alert.tscn" type="PackedScene" id=18]
 
@@ -63,13 +63,12 @@ texture = ExtResource( 7 )
 margin_left = 156.0
 margin_top = 98.0
 margin_right = 752.0
-margin_bottom = 528.0
+margin_bottom = 479.0
 custom_styles/bg = SubResource( 1 )
 custom_colors/font_color_selected = Color( 0.215686, 0.215686, 0.215686, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
-auto_height = true
 max_columns = 4
-fixed_column_width = 100
+fixed_column_width = 120
 icon_mode = 0
 icon_scale = 0.2
 script = ExtResource( 16 )

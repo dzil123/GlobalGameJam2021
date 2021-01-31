@@ -21,7 +21,6 @@ func set_rng():
 
 func delay(min_time, max_time):
 	var time = rand_range(min_time, max_time)
-	print("waiting %.1f" % time)
 	return get_tree().create_timer(time)
 
 
@@ -41,3 +40,9 @@ func restart():
 
 func exit():
 	get_node(@"/root/GameManager").load_menu_scene()
+
+
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_ESCAPE:
+			exit()
