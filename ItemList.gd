@@ -62,6 +62,8 @@ func _on_Filesystem_found_solution():
 	is_running = false
 	print("you win!!!!")
 	get_node(@"../../WinDialog").popup()
+
+
 #	yield(delay(1.0, 1.0), "timeout")
 #	get_node(@"../../WinDialog").popup_exclusive = false
 

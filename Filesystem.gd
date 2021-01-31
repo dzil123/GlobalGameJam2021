@@ -80,10 +80,10 @@ class RandomGenerator:
 		return new_file
 
 	func generate():
-		for i in range(5):
+		for i in range(20):
 			add_rand_folder()
 
-		for i in range(5):
+		for i in range(10):
 			add_rand_file()
 
 		add_rand_file().set_is_solution()

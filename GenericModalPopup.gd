@@ -12,11 +12,11 @@ func run(packed_child: PackedScene, attach_to: Node):
 #	margin_left = coords.x
 #	margin_top = coords.y
 	rect_position = coords
-	
+
 	popup()
-	
+
 #	yield(get_tree(), "idle_frame")
-	
+
 	#set_as_minsize()
 
 	yield(child, "unlocked")
