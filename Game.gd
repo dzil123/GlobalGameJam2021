@@ -6,6 +6,8 @@ func _init():
 
 func _ready():
 	start_rand_sound()
+	get_node(@"Panel").popup_centered()
+	get_node(@"Panel").get_close_button().connect("pressed", get_node("/root/GameManager"), "load_menu_scene")
 
 func set_rng():
 	randomize()
@@ -13,11 +15,6 @@ func set_rng():
 
 	print("Running seed = %d" % seeed)
 	seed(seeed)
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			get_node(@"ClickPlayer").play()
 
 func delay(min_time, max_time):
 	var time = rand_range(min_time, max_time)
@@ -32,4 +29,8 @@ func start_rand_sound():
 		var pitch = 1.0		
 		if get_node("Panel/ItemList").is_running:
 			pitch = rand_range(0.5, 1.5)
-		get_node(@"MusicPlayer").pitch_scale = pitch
+		get_node(@"/root/GameManager/MusicPlayer").pitch_scale = pitch
+
+
+func restart():
+	get_node(@"/root/GameManager").load_game_scene()

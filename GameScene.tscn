@@ -1,0 +1,187 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://ItemList.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Filesystem.gd" type="Script" id=4]
+[ext_resource path="res://Game.gd" type="Script" id=5]
+[ext_resource path="res://LabelTimer.gd" type="Script" id=6]
+[ext_resource path="res://Textures/folder.png" type="Texture" id=7]
+[ext_resource path="res://GenericModalPopup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Popups/Virus.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Popups/Alert.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Textures/Arrow.png" type="Texture" id=11]
+[ext_resource path="res://Textures/solution.png" type="Texture" id=12]
+[ext_resource path="res://Popups/TypeInTheText.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Textures/empty.png" type="Texture" id=14]
+[ext_resource path="res://Textures/file.png" type="Texture" id=15]
+[ext_resource path="res://Textures/background.png" type="Texture" id=16]
+[ext_resource path="res://Textures/explorer.png" type="Texture" id=17]
+[ext_resource path="res://Textures/RefreshButton.png" type="Texture" id=18]
+[ext_resource path="res://Sounds/win.ogg" type="AudioStream" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://.import/icon.png-978e27f0ae1614ea0b09d48180500d06.stex"
+
+[node name="Game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="WindowDialog" parent="."]
+visible = true
+margin_left = 186.0
+margin_top = 124.0
+margin_right = 1043.0
+margin_bottom = 670.0
+window_title = "Testing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="explorer" type="Sprite" parent="Panel"]
+position = Vector2( 428.942, 273.621 )
+scale = Vector2( 0.575782, 0.575782 )
+texture = ExtResource( 17 )
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+margin_left = 156.0
+margin_top = 98.0
+margin_right = 752.0
+margin_bottom = 528.0
+custom_styles/bg = SubResource( 1 )
+custom_colors/font_color_selected = Color( 0.215686, 0.215686, 0.215686, 1 )
+custom_colors/font_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+auto_height = true
+max_columns = 4
+fixed_column_width = 100
+icon_mode = 0
+icon_scale = 0.2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+fs = SubResource( 2 )
+GenericModalPopup = ExtResource( 8 )
+folder_tex = ExtResource( 7 )
+file_tex = ExtResource( 15 )
+solution_tex = ExtResource( 12 )
+empty_tex = ExtResource( 14 )
+popups = [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 9 ) ]
+
+[node name="Timer" type="Timer" parent="Panel/ItemList"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 157.0
+margin_top = 59.0
+margin_right = 700.0
+margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Label Text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpButton" type="TextureButton" parent="Panel"]
+margin_left = 763.864
+margin_top = 103.158
+margin_right = 816.864
+margin_bottom = 153.158
+texture_normal = ExtResource( 11 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="Panel"]
+margin_left = 765.266
+margin_top = 170.596
+margin_right = 816.266
+margin_bottom = 218.596
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTimer" type="Label" parent="Panel"]
+margin_left = 258.885
+margin_top = 497.958
+margin_right = 394.885
+margin_bottom = 540.958
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time left: 0 s"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoseDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 604.048
+margin_top = 452.322
+margin_right = 731.048
+margin_bottom = 515.322
+popup_exclusive = true
+window_title = "You Lose!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="Sprite" parent="LoseDialog"]
+position = Vector2( 63, 27.7897 )
+scale = Vector2( 0.65625, 0.65625 )
+texture = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LoseDialog"]
+stream = ExtResource( 2 )
+
+[node name="WinDialog" type="WindowDialog" parent="."]
+visible = true
+margin_left = 592.594
+margin_top = 356.81
+margin_right = 719.594
+margin_bottom = 419.81
+popup_exclusive = true
+window_title = "You Win!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="Sprite" parent="WinDialog"]
+position = Vector2( 63, 27.7897 )
+scale = Vector2( 0.65625, 0.65625 )
+texture = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WinDialog"]
+stream = ExtResource( 19 )
+[connection signal="item_activated" from="Panel/ItemList" to="Panel/ItemList" method="_on_ItemList_item_activated"]
+[connection signal="timeout" from="Panel/ItemList/Timer" to="Panel/ItemList" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Panel/UpButton" to="Panel/ItemList" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Panel/RestartButton" to="." method="restart"]
+[connection signal="about_to_show" from="LoseDialog" to="LoseDialog/AudioStreamPlayer" method="play"]
+[connection signal="popup_hide" from="LoseDialog" to="." method="restart"]
+[connection signal="about_to_show" from="WinDialog" to="WinDialog/AudioStreamPlayer" method="play"]
+[connection signal="popup_hide" from="WinDialog" to="." method="restart"]

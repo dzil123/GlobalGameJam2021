@@ -22,5 +22,5 @@ func _on_LineEdit_input(new_text):
 
 
 func generate_password():
-	var arr = get_node(@"PasswordReader").text
+	var arr = Passwords.get_arr()
 	return arr[randi() % arr.size()]

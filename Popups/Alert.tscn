@@ -15,6 +15,9 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 14.0
 text = "Press OK to continue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="."]
 margin_left = 46.25
@@ -22,6 +25,9 @@ margin_top = 23.5969
 margin_right = 77.25
 margin_bottom = 43.5969
 text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

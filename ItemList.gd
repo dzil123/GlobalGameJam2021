@@ -1,6 +1,6 @@
 extends ItemList
 
-export (Resource) var fs = Filesystem.new()
+export (Resource) var fs
 export (PackedScene) var GenericModalPopup
 
 export (Texture) var folder_tex
@@ -14,7 +14,7 @@ var is_running = true
 
 
 func _ready():
-#	fs = Filesystem.new()
+	fs = Filesystem.new()
 	fs.generate()
 	fs.connect("changed_dir", self, "_on_Filesystem_changed_dir")
 	fs.connect("found_solution", self, "_on_Filesystem_found_solution")
@@ -62,6 +62,8 @@ func _on_Filesystem_found_solution():
 	is_running = false
 	print("you win!!!!")
 	get_node(@"../../WinDialog").popup()
+#	yield(delay(1.0, 1.0), "timeout")
+#	get_node(@"../../WinDialog").popup_exclusive = false
 
 
 func _on_Filesystem_changed_dir(path_str: String):
@@ -97,7 +99,5 @@ func _on_Timer_timeout():
 	print("timeout")
 	is_running = false
 	get_node(@"../../LoseDialog").popup()
-
-
-func _on_RestartButton_pressed():
-	get_tree().reload_current_scene()
+#	yield(delay(1.0, 1.0), "timeout")
+#	get_node(@"../../LoseDialog").popup_exclusive = false
