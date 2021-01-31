@@ -12,10 +12,12 @@ func load_scene(scene: PackedScene):
 
 
 func load_game_scene():
+#	get_node(@"MusicPlayer").stream_paused = false
 	load_scene(game_scene)
 
 
 func load_menu_scene():
+#	get_node(@"MusicPlayer").stream_paused = true
 	load_scene(start_menu_scene)
 
 

@@ -29,11 +29,11 @@ func delay(min_time, max_time):
 
 func start_rand_sound():
 	while true:
-		yield(delay(0.5, 1.0), "timeout")
+		yield(delay(1.0, 2.0), "timeout")
 
 		var pitch = 1.0
 		if get_node("Panel/ItemList").is_running:
-			pitch = rand_range(0.5, 1.5)
+			pitch = rand_range(0.8, 1.2)
 		get_node(@"/root/GameManager/MusicPlayer").pitch_scale = pitch
 
 

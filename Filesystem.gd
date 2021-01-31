@@ -67,26 +67,28 @@ class RandomGenerator:
 
 		return name
 
-	func new_folder() -> Folder:
-		var folder: Folder = all_folders[randi() % all_folders.size()]
+	func new_folder(depth_max: int, depth_min: int = -1) -> Folder:
+		var folder: Folder = null
+		while folder == null or folder.depth > depth_max or folder.depth < depth_min:
+			folder = all_folders[randi() % all_folders.size()]
 		return folder.add_child_new(random_name())
 
-	func add_rand_folder():
-		all_folders.append(new_folder())
+	func add_rand_folder(depth_max: int, depth_min: int = -1):
+		all_folders.append(new_folder(depth_max, depth_min))
 
-	func add_rand_file() -> Folder:
-		var new_file := new_folder()
+	func add_rand_file(depth_max: int, depth_min: int = -1) -> Folder:
+		var new_file := new_folder(depth_max, depth_min)
 		new_file.set_is_file()
 		return new_file
 
 	func generate():
+		for i in range(100):
+			add_rand_folder(1)
+
 		for i in range(20):
-			add_rand_folder()
+			add_rand_file(3)
 
-		for i in range(10):
-			add_rand_file()
-
-		add_rand_file().set_is_solution()
+		add_rand_file(2, 2).set_is_solution()
 
 		for folder in all_folders:
 			folder.children.shuffle()

@@ -32,11 +32,11 @@ func delay(min_time, max_time):
 
 func start_random():
 #	return
-	yield(delay(2.0, 3.0), "timeout")
+	yield(delay(0.5, 1.0), "timeout")
 
 	while is_running:
 		yield(new_dialog(), "completed")
-		yield(delay(1.0, 2.0), "timeout")
+		yield(delay(4.0, 10.0), "timeout")
 
 
 func new_dialog():

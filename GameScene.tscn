@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ItemList.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/game_over.ogg" type="AudioStream" id=2]
@@ -23,10 +23,6 @@
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 4 )
-
-[sub_resource type="StreamTexture" id=3]
-flags = 4
-load_path = "res://.import/icon.png-978e27f0ae1614ea0b09d48180500d06.stex"
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -150,11 +146,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="icon" type="Sprite" parent="LoseDialog"]
-position = Vector2( 63, 27.7897 )
-scale = Vector2( 0.65625, 0.65625 )
-texture = SubResource( 3 )
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LoseDialog"]
 stream = ExtResource( 2 )
 
@@ -169,11 +160,6 @@ window_title = "You Win!!!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="icon" type="Sprite" parent="WinDialog"]
-position = Vector2( 63, 27.7897 )
-scale = Vector2( 0.65625, 0.65625 )
-texture = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="WinDialog"]
 stream = ExtResource( 19 )

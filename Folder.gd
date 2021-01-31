@@ -6,7 +6,7 @@ export (String) var name
 export (Array, Resource) var children  # Array[Folder]
 export (bool) var is_folder = true
 export (bool) var is_solution = false
-
+var depth = 0
 
 func get_child(child_name: String) -> Folder:
 	if not is_folder:
@@ -25,6 +25,8 @@ func add_child(child: Folder):
 		return null
 
 	children.append(child)
+	child.depth = depth + 1
+	print(child.depth)
 	return child
 
 

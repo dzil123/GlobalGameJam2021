@@ -27,17 +27,11 @@ __meta__ = {
 
 [node name="LeftLabel" type="RichTextLabel" parent="."]
 margin_left = 47.0
-margin_top = 47.0
+margin_top = 167.0
 margin_right = 315.0
 margin_bottom = 674.0
 custom_fonts/normal_font = ExtResource( 5 )
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl rhoncus mattis rhoncus urna neque viverra justo. Morbi leo urna molestie at. Et leo duis ut diam. Massa tempor nec feugiat nisl pretium fusce. At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. Tellus in hac habitasse platea. Metus dictum at tempor commodo ullamcorper a. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam. Sapien faucibus et molestie ac feugiat sed. Egestas dui id ornare arcu odio ut. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet. Egestas sed tempus urna et pharetra.
-
-Ullamcorper sit amet risus nullam eget felis eget. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Urna nec tincidunt praesent semper feugiat nibh. Enim nulla aliquet porttitor lacus. Eu mi bibendum neque egestas congue quisque egestas. Enim praesent elementum facilisis leo vel fringilla est ullamcorper eget. Amet purus gravida quis blandit turpis cursus. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor. Euismod elementum nisi quis eleifend quam adipiscing vitae proin. Urna nec tincidunt praesent semper. In arcu cursus euismod quis. Et leo duis ut diam quam nulla. Fermentum posuere urna nec tincidunt. Vel pretium lectus quam id leo in vitae turpis.
-
-Urna neque viverra justo nec ultrices dui sapien eget mi. Risus in hendrerit gravida rutrum quisque. Morbi tristique senectus et netus. Risus in hendrerit gravida rutrum quisque non tellus. Sagittis eu volutpat odio facilisis mauris sit. Sed euismod nisi porta lorem mollis aliquam ut. Lectus mauris ultrices eros in cursus turpis massa. Vitae auctor eu augue ut lectus arcu. In est ante in nibh mauris cursus mattis molestie. Cum sociis natoque penatibus et. Viverra justo nec ultrices dui sapien eget mi proin. Vitae justo eget magna fermentum iaculis eu non.
-
-Sit amet est placerat in. Quis commodo odio aenean sed adipiscing diam. Pulvinar mattis nunc sed blandit libero. Semper auctor neque vitae tempus quam pellentesque nec. Sed tempus urna et pharetra pharetra. Sed augue lacus viverra vitae. Ullamcorper malesuada proin libero nunc consequat interdum. Massa id neque aliquam vestibulum morbi blandit. Urna molestie at elementum eu facilisis sed odio morbi quis. At in tellus integer feugiat. Nec ultrices dui sapien eget mi proin sed. Elit eget gravida cum sociis natoque penatibus et magnis. Eget arcu dictum varius duis at consectetur lorem donec. Elit at imperdiet dui accumsan sit amet nulla. Vulputate mi sit amet mauris commodo. Eget nullam non nisi est sit amet. At volutpat diam ut venenatis tellus in. Placerat vestibulum lectus mauris ultrices eros in cursus. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Purus faucibus ornare suspendisse sed nisi."
+text = "Don’t you hate it when a file gets misplaced? Can you sort out the yellow folders in time? The darker one is the one you must find yet the lighter ones are decoys.  Watch out also for pop ups stopping your progress. Click the up arrow to go back a folder level."
 __meta__ = {
 "_edit_use_anchors_": false
 }
