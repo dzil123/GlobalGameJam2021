@@ -9,12 +9,16 @@ stupid
 gamejam
 password
 m
+Password!
+asdfgh
+lolololol
 12345
 dog
-mzsijkmapq
-To be or not to be
+qwerty
+corrupted
 Type tHis
 pzpzpzp
+h
 """
 
 static func get_arr():

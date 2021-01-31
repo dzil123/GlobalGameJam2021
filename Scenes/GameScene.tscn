@@ -48,6 +48,7 @@ margin_left = 186.0
 margin_top = 124.0
 margin_right = 1043.0
 margin_bottom = 670.0
+popup_exclusive = true
 window_title = "Testing"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -134,6 +135,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CloseButton" type="Button" parent="Panel"]
+margin_left = 807.0
+margin_top = 9.0
+margin_right = 850.0
+margin_bottom = 47.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LoseDialog" type="WindowDialog" parent="."]
 visible = true
 margin_left = 604.048
@@ -167,6 +178,7 @@ stream = ExtResource( 11 )
 [connection signal="timeout" from="Panel/ItemList/Timer" to="Panel/ItemList" method="_on_Timer_timeout"]
 [connection signal="pressed" from="Panel/UpButton" to="Panel/ItemList" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Panel/RestartButton" to="." method="restart"]
+[connection signal="pressed" from="Panel/CloseButton" to="." method="exit"]
 [connection signal="about_to_show" from="LoseDialog" to="LoseDialog/AudioStreamPlayer" method="play"]
 [connection signal="popup_hide" from="LoseDialog" to="." method="restart"]
 [connection signal="about_to_show" from="WinDialog" to="WinDialog/AudioStreamPlayer" method="play"]

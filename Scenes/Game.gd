@@ -8,9 +8,7 @@ func _init():
 func _ready():
 	start_rand_sound()
 	get_node(@"Panel").popup_centered()
-	get_node(@"Panel").get_close_button().connect(
-		"pressed", get_node("/root/GameManager"), "load_menu_scene"
-	)
+	get_node(@"Panel").get_close_button().visible = false
 
 
 func set_rng():
@@ -39,3 +37,7 @@ func start_rand_sound():
 
 func restart():
 	get_node(@"/root/GameManager").load_game_scene()
+
+
+func exit():
+	get_node(@"/root/GameManager").load_menu_scene()
