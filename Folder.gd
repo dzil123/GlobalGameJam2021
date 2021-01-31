@@ -8,6 +8,7 @@ export (bool) var is_folder = true
 export (bool) var is_solution = false
 var depth = 0
 
+
 func get_child(child_name: String) -> Folder:
 	if not is_folder:
 		return null

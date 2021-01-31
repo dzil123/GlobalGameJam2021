@@ -23,23 +23,17 @@ _global_script_classes=[ {
 "class": "Passwords",
 "language": "GDScript",
 "path": "res://Passwords.gd"
-}, {
-"base": "Object",
-"class": "Util",
-"language": "GDScript",
-"path": "res://Util.gd"
 } ]
 _global_script_class_icons={
 "Filesystem": "",
 "Folder": "",
-"Passwords": "",
-"Util": ""
+"Passwords": ""
 }
 
 [application]
 
 config/name="Chaser2"
-run/main_scene="res://StartMenu.tscn"
+run/main_scene="res://Scenes/StartMenu.tscn"
 config/icon="res://Textures/icon.png"
 
 [audio]
