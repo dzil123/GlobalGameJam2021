@@ -14,15 +14,13 @@
 [ext_resource path="res://Textures/background.png" type="Texture" id=12]
 [ext_resource path="res://Textures/empty.png" type="Texture" id=13]
 [ext_resource path="res://Textures/solution.png" type="Texture" id=14]
-[ext_resource path="res://Utils/Filesystem.gd" type="Script" id=15]
+[ext_resource path="res://Other/Outline.tres" type="StyleBox" id=15]
 [ext_resource path="res://Nodes/ItemList.gd" type="Script" id=16]
 [ext_resource path="res://Popups/Virus.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Popups/Alert.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Other/OutlineHover.tres" type="StyleBox" id=19]
 
 [sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="Resource" id=2]
-script = ExtResource( 15 )
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -33,7 +31,8 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
-margin_right = 1280.0
+margin_left = -1.05945
+margin_right = 1278.94
 margin_bottom = 720.0
 texture = ExtResource( 12 )
 expand = true
@@ -55,27 +54,26 @@ __meta__ = {
 }
 
 [node name="explorer" type="Sprite" parent="Panel"]
-position = Vector2( 428.942, 273.621 )
+position = Vector2( 428.942, 274.68 )
 scale = Vector2( 0.575782, 0.575782 )
 texture = ExtResource( 7 )
 
 [node name="ItemList" type="ItemList" parent="Panel"]
 margin_left = 156.0
-margin_top = 98.0
+margin_top = 96.9405
 margin_right = 752.0
-margin_bottom = 479.0
+margin_bottom = 477.941
 custom_styles/bg = SubResource( 1 )
 custom_colors/font_color_selected = Color( 0.215686, 0.215686, 0.215686, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 max_columns = 4
-fixed_column_width = 120
+fixed_column_width = 130
 icon_mode = 0
 icon_scale = 0.2
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-fs = SubResource( 2 )
 GenericModalPopup = ExtResource( 5 )
 folder_tex = ExtResource( 3 )
 file_tex = ExtResource( 10 )
@@ -135,16 +133,20 @@ __meta__ = {
 }
 
 [node name="CloseButton" type="Button" parent="Panel"]
-margin_left = 807.0
-margin_top = 9.0
-margin_right = 850.0
-margin_bottom = 47.0
-flat = true
+margin_left = 808.0
+margin_top = 8.94055
+margin_right = 848.0
+margin_bottom = 46.9406
+custom_styles/hover = ExtResource( 19 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = ExtResource( 19 )
+custom_styles/disabled = ExtResource( 15 )
+custom_styles/normal = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LoseDialog" type="WindowDialog" parent="."]
+[node name="LoseDialog" type="AcceptDialog" parent="."]
 visible = true
 margin_left = 604.048
 margin_top = 452.322
@@ -152,14 +154,11 @@ margin_right = 731.048
 margin_bottom = 515.322
 popup_exclusive = true
 window_title = "You Lose!!!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LoseDialog"]
 stream = ExtResource( 4 )
 
-[node name="WinDialog" type="WindowDialog" parent="."]
+[node name="WinDialog" type="AcceptDialog" parent="."]
 visible = true
 margin_left = 592.594
 margin_top = 356.81
@@ -181,4 +180,4 @@ stream = ExtResource( 11 )
 [connection signal="about_to_show" from="LoseDialog" to="LoseDialog/AudioStreamPlayer" method="play"]
 [connection signal="popup_hide" from="LoseDialog" to="." method="restart"]
 [connection signal="about_to_show" from="WinDialog" to="WinDialog/AudioStreamPlayer" method="play"]
-[connection signal="popup_hide" from="WinDialog" to="." method="restart"]
+[connection signal="popup_hide" from="WinDialog" to="." method="win"]

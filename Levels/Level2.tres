@@ -1,0 +1,52 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://Utils/Level.gd" type="Script" id=1]
+[ext_resource path="res://Utils/Folder.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+name = "Desktop"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+name = "Documents"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+name = "Downloads"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+name = "Pictures"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+name = ""
+children = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ]
+is_folder = true
+is_solution = false
+
+[resource]
+script = ExtResource( 1 )
+time = 10.0
+num_folders = 0
+num_files = 100
+min_folder_depth = -1
+max_folder_depth = -1
+min_file_depth = 1
+max_file_depth = -1
+min_solution_depth = 1
+blacklist = 5
+preset_folder = SubResource( 5 )

@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Nodes/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/StartMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/click.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/music.ogg" type="AudioStream" id=5]
-
+[ext_resource path="res://Levels/Level0.tres" type="Resource" id=6]
+[ext_resource path="res://Levels/Level1.tres" type="Resource" id=7]
+[ext_resource path="res://Levels/Level2.tres" type="Resource" id=8]
+[ext_resource path="res://Levels/Level3.tres" type="Resource" id=9]
+[ext_resource path="res://Levels/Level4.tres" type="Resource" id=10]
+[ext_resource path="res://Levels/Level5.tres" type="Resource" id=11]
+[ext_resource path="res://Levels/Infinite.tres" type="Resource" id=12]
 
 [sub_resource type="AudioStreamRandomPitch" id=1]
 audio_stream = ExtResource( 4 )
@@ -15,6 +21,7 @@ random_pitch = 1.2
 script = ExtResource( 1 )
 start_menu_scene = ExtResource( 3 )
 game_scene = ExtResource( 2 )
+levels = [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 1 )

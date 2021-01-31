@@ -1,6 +1,5 @@
 extends ItemList
 
-export (Resource) var fs
 export (PackedScene) var GenericModalPopup
 
 export (Texture) var folder_tex
@@ -12,27 +11,34 @@ export (Array, PackedScene) var popups
 
 var is_running = true
 
+onready var GameManager = get_node(@"/root/GameManager")
+
+onready var level = GameManager.get_level()
+onready var fs = level.generate()
+
 
 func _ready():
-	fs = Filesystem.new()
-	fs.generate()
 	fs.connect("changed_dir", self, "_on_Filesystem_changed_dir")
 	fs.connect("found_solution", self, "_on_Filesystem_found_solution")
 	fs.cd_slash()
 
-	get_node(@"Timer").start()
+	get_node(@"..").window_title = GameManager.get_level_name()
+	popups = level.allowed_popups(popups)
+
+	get_node(@"Timer").start(level.time)
 	start_random()
 
 
 func delay(min_time, max_time):
 	var time = rand_range(min_time, max_time)
-	print("waiting %.1f" % time)
 	return get_tree().create_timer(time)
 
 
 func start_random():
-#	return
-	yield(delay(0.5, 1.0), "timeout")
+	if popups.size() == 0:
+		return
+
+	yield(delay(2.0, 4.0), "timeout")
 
 	while is_running:
 		yield(new_dialog(), "completed")
@@ -48,8 +54,6 @@ func new_dialog():
 func _on_ItemList_item_activated(index):
 	if not is_running:
 		return
-
-	print("selected %d" % index)
 
 	var new_folder = get_item_text(index)
 	if new_folder == "":
@@ -98,7 +102,6 @@ func _on_TextureButton_pressed():
 func _on_Timer_timeout():
 	if not is_running:
 		return
-	print("timeout")
 	is_running = false
 	get_node(@"../../LoseDialog").popup()
 #	yield(delay(1.0, 1.0), "timeout")

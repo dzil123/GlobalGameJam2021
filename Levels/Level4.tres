@@ -1,0 +1,143 @@
+[gd_resource type="Resource" load_steps=21 format=2]
+
+[ext_resource path="res://Utils/Level.gd" type="Script" id=1]
+[ext_resource path="res://Utils/Folder.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+name = "bin"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+name = "sda"
+children = [  ]
+is_folder = false
+is_solution = false
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+name = "nvme0"
+children = [  ]
+is_folder = false
+is_solution = false
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+name = "dev"
+children = [ SubResource( 2 ), SubResource( 3 ) ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+name = "passwd"
+children = [  ]
+is_folder = false
+is_solution = false
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+name = "fstab"
+children = [  ]
+is_folder = false
+is_solution = false
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 2 )
+name = "etc"
+children = [ SubResource( 5 ), SubResource( 6 ) ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 2 )
+name = "dzilberleyb"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 2 )
+name = "jwolfe"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+name = "jlam"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=11]
+script = ExtResource( 2 )
+name = "home"
+children = [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 2 )
+name = "proc"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 2 )
+name = "bin"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=14]
+script = ExtResource( 2 )
+name = "share"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=15]
+script = ExtResource( 2 )
+name = "usr"
+children = [ SubResource( 13 ), SubResource( 14 ) ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=16]
+script = ExtResource( 2 )
+name = "log"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=17]
+script = ExtResource( 2 )
+name = "var"
+children = [ SubResource( 16 ) ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=18]
+script = ExtResource( 2 )
+name = ""
+children = [ SubResource( 1 ), SubResource( 4 ), SubResource( 7 ), SubResource( 11 ), SubResource( 12 ), SubResource( 15 ), SubResource( 17 ) ]
+is_folder = true
+is_solution = false
+
+[resource]
+script = ExtResource( 1 )
+time = 45.0
+num_folders = 15
+num_files = 60
+min_folder_depth = 1
+max_folder_depth = 2
+min_file_depth = 1
+max_file_depth = -1
+min_solution_depth = 2
+blacklist = 4
+preset_folder = SubResource( 18 )

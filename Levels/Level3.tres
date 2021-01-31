@@ -1,0 +1,59 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://Utils/Level.gd" type="Script" id=1]
+[ext_resource path="res://Utils/Folder.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+name = "Windows"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+name = "Program Files"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+name = "Program Files (x86)"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+name = "Users"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+name = "System Volume Information"
+children = [  ]
+is_folder = true
+is_solution = false
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 2 )
+name = ""
+children = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
+is_folder = true
+is_solution = false
+
+[resource]
+script = ExtResource( 1 )
+time = 30.0
+num_folders = 10
+num_files = 30
+min_folder_depth = 1
+max_folder_depth = 2
+min_file_depth = 1
+max_file_depth = -1
+min_solution_depth = 2
+blacklist = 4
+preset_folder = SubResource( 6 )

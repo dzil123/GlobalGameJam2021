@@ -27,7 +27,6 @@ func add_child(child: Folder):
 
 	children.append(child)
 	child.depth = depth + 1
-	print(child.depth)
 	return child
 
 
@@ -45,3 +44,17 @@ func set_is_file():
 func set_is_solution():
 	set_is_file()
 	is_solution = true
+
+
+func set_depth(new_depth):
+	depth = new_depth
+	for child in children:
+		child.set_depth(new_depth + 1)
+
+
+func copy() -> Folder:
+	var new_folder = duplicate()
+	new_folder.children = []
+	for child in children:
+		new_folder.children.append(child.copy())
+	return new_folder

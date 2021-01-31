@@ -2,4 +2,14 @@ Urban Sunrise
 Exzel Music Publishing (freemusicpublicdomain.com)
 Licensed under Creative Commons: By Attribution 3.0
 http://creativecommons.org/licenses/by/3.0/
-Changes made: adjusted tempo and pitch
+Changes made from original: adjusted tempo and pitch
+
+Godot 3 2D CRT Shader
+Copyright (c) 2019 Xavier Gómez Gosálbez (a.k.a. hiulit) (https://github.com/hiulit/Godot-3-2D-CRT-Shader)
+Licensed under MIT License
+https://github.com/hiulit/Godot-3-2D-CRT-Shader/blob/62052678cb84cc13ca6d54eea37527ad5d446ecb/LICENSE
+
+Roboto Font (Black 900 italic)
+https://fonts.google.com/specimen/Roboto
+Licensed under Apache License, Version 2.0
+http://www.apache.org/licenses/LICENSE-2.0

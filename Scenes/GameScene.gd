@@ -1,5 +1,7 @@
 extends Control
 
+onready var GameManager = get_node(@"/root/GameManager")
+
 
 func _init():
 	set_rng()
@@ -35,14 +37,18 @@ func start_rand_sound():
 
 
 func restart():
-	get_node(@"/root/GameManager").load_game_scene()
+	GameManager.load_game_scene()
 
 
 func exit():
-	get_node(@"/root/GameManager").load_menu_scene()
+	GameManager.load_menu_scene()
 
 
 func _input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_ESCAPE:
 			exit()
+
+
+func win():
+	GameManager.next_level()

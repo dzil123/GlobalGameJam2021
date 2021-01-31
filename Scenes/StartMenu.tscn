@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Other/Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Textures/Play.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/StartMenu.gd" type="Script" id=5]
 [ext_resource path="res://Other/Shadowed.tres" type="StyleBox" id=6]
 [ext_resource path="res://Other/ShadowedHover.tres" type="StyleBox" id=7]
+[ext_resource path="res://Other/CRT.tscn" type="PackedScene" id=8]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -31,11 +32,21 @@ __meta__ = {
 
 [node name="LeftLabel" type="RichTextLabel" parent="."]
 margin_left = 47.0
-margin_top = 167.0
+margin_top = 67.0
 margin_right = 315.0
 margin_bottom = 674.0
 custom_fonts/normal_font = ExtResource( 1 )
-text = "Don’t you hate it when a file gets misplaced? Can you sort out the yellow folders in time? The darker one is the one you must find yet the lighter ones are decoys.  Watch out also for pop ups stopping your progress. Click the up arrow to go back a folder level."
+text = "Oops! You just lost all your important files!
+Can you FIND the LOST yellow folders in time?
+
+The dark folder is the one you must find,
+and the lighter ones are decoys.
+Watch out for popups stopping your progress.
+
+Controls:
+Double click a folder to open it
+Up arrow to go back a folder level.
+Refresh button to restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,6 +64,7 @@ Daniel Zilberleyb (Programmer)
 Jessie Lam (Artist)"
 
 [node name="PlayButton" type="Button" parent="."]
+light_mask = -2147483645
 margin_left = 456.0
 margin_top = 490.0
 margin_right = 817.0
@@ -83,5 +95,7 @@ expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CRT" parent="." instance=ExtResource( 8 )]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
