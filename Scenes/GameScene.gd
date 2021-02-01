@@ -11,6 +11,8 @@ func _ready():
 	start_rand_sound()
 	get_node(@"Panel").popup_centered()
 	get_node(@"Panel").get_close_button().visible = false
+	get_node(@"WinDialog").get_ok().text = "Next Level"
+	get_node(@"LoseDialog").get_ok().text = "Try Again"
 
 
 func set_rng():

@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Chaser2"
+config/name="Bad Computer"
 run/main_scene="res://Scenes/StartMenu.tscn"
 config/icon="res://Textures/icon.png"
 
@@ -54,6 +54,7 @@ GameManager="*res://Nodes/GameManager.tscn"
 
 window/size/width=1280
 window/size/height=720
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

@@ -10,7 +10,7 @@ export (int) var max_folder_depth = -1
 export (int) var min_file_depth = -1
 export (int) var max_file_depth = -1
 export (int) var min_solution_depth = -1
-export (int, FLAGS, "Password", "Alert", "Virus") var blacklist = 0
+export (int, FLAGS, "Password", "Alert", "Virus", "Counting") var blacklist = 0
 export (Resource) var preset_folder  # Folder
 
 var all_folders = null

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Popups/CountingGame.gd" type="Script" id=1]
+
+[node name="CountingGame" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Click OK when the number is at 10
+XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 96.6408
+margin_top = 38.2068
+margin_right = 127.641
+margin_bottom = 58.2068
+text = "OK"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

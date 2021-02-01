@@ -22,7 +22,10 @@ func _ready():
 	fs.connect("found_solution", self, "_on_Filesystem_found_solution")
 	fs.cd_slash()
 
-	get_node(@"..").window_title = GameManager.get_level_name()
+	var window_title = get_node(@"../WindowTitle")
+#	window_title.bbcode_text = "[center]%s[/center]" % GameManager.get_level_name()
+	window_title.text = GameManager.get_level_name()
+	
 	popups = level.allowed_popups(popups)
 
 	get_node(@"Timer").start(level.time)
@@ -42,7 +45,12 @@ func start_random():
 
 	while is_running:
 		yield(new_dialog(), "completed")
-		yield(delay(4.0, 10.0), "timeout")
+		var timer
+		if GameManager.current_level >= 5:
+			timer = delay(3.5, 8.0)
+		else:
+			timer = delay(4.0, 10.0)
+		yield(timer, "timeout")
 
 
 func new_dialog():

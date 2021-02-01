@@ -24,10 +24,10 @@ align = 1
 
 [node name="Button" type="Button" parent="."]
 margin_left = 54.0
-margin_top = 64.0
+margin_top = 81.0
 margin_right = 134.0
-margin_bottom = 84.0
-text = "Don't Click"
+margin_bottom = 101.0
+text = "Click?"
 __meta__ = {
 "_edit_use_anchors_": false
 }

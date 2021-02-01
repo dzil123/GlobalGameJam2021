@@ -1,3 +1,8 @@
+License	GNU General Public License v3.0 (GPL)
+Asset license	Creative Commons Attribution_NonCommercial_ShareAlike v4.0 International
+
+External Licenses:
+
 Urban Sunrise
 Exzel Music Publishing (freemusicpublicdomain.com)
 Licensed under Creative Commons: By Attribution 3.0

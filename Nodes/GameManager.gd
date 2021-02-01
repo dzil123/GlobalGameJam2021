@@ -27,15 +27,26 @@ func get_level() -> Level:
 	return levels[current_level]
 
 
-func get_level_name() -> String:
-	if current_level == levels.size() - 1:
+func get_level_name(level: int = -1, short: bool = false) -> String:
+	if level < 0:
+		level = current_level
+	if level == levels.size() - 1:
 		return "Free Play"
-	return "Level: %d" % current_level
+	if short:
+		return "%d" % level
+	return "Level: %d" % level
 
 
 func next_level():
 	current_level = min(current_level + 1, levels.size() - 1)
 	load_game_scene()
+
+
+func all_levels() -> Array:
+	var arr = []
+	for level in range(levels.size()):
+		arr.append(get_level_name(level))
+	return arr
 
 
 func _input(event):

@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/StartMenu.gd" type="Script" id=5]
 [ext_resource path="res://Other/Shadowed.tres" type="StyleBox" id=6]
 [ext_resource path="res://Other/ShadowedHover.tres" type="StyleBox" id=7]
-[ext_resource path="res://Other/CRT.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Textures/LevelSelect.png" type="Texture" id=8]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -36,6 +36,18 @@ margin_top = 67.0
 margin_right = 315.0
 margin_bottom = 674.0
 custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Oops! You just lost all your important files!
+Can you FIND the LOST yellow folders in time?
+
+The dark folder is the one you must find,
+and the lighter ones are decoys.
+Watch out for popups stopping your progress.
+
+[center]Controls:[/center]
+- Double click a folder to open it
+- Up arrow to go back a directory
+- Refresh button to restart"
 text = "Oops! You just lost all your important files!
 Can you FIND the LOST yellow folders in time?
 
@@ -44,9 +56,9 @@ and the lighter ones are decoys.
 Watch out for popups stopping your progress.
 
 Controls:
-Double click a folder to open it
-Up arrow to go back a folder level.
-Refresh button to restart"
+- Double click a folder to open it
+- Up arrow to go back a directory
+- Refresh button to restart"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,16 +71,17 @@ margin_bottom = 544.0
 custom_fonts/normal_font = ExtResource( 1 )
 custom_constants/line_separation = 7
 text = "Users:
-Joshua Wolfe (Producer, Audio Designer)
+Joshua Wolfe (Producer, Audio)
 Daniel Zilberleyb (Programmer)
-Jessie Lam (Artist)"
+Jessie Lam
+(Artist)"
 
 [node name="PlayButton" type="Button" parent="."]
 light_mask = -2147483645
-margin_left = 456.0
-margin_top = 490.0
-margin_right = 817.0
-margin_bottom = 633.0
+margin_left = 456.749
+margin_top = 489.251
+margin_right = 817.749
+margin_bottom = 632.251
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/focus = ExtResource( 6 )
@@ -96,6 +109,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CRT" parent="." instance=ExtResource( 8 )]
+[node name="LevelSelectPopup" type="PopupMenu" parent="."]
+margin_left = 601.682
+margin_top = 366.733
+margin_right = 645.682
+margin_bottom = 415.733
+
+[node name="LevelSelectButton" type="Button" parent="."]
+margin_left = 1029.26
+margin_top = 620.805
+margin_right = 1232.26
+margin_bottom = 675.805
+icon = ExtResource( 8 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentLevelLabel" type="RichTextLabel" parent="."]
+margin_left = 323.0
+margin_top = 637.0
+margin_right = 944.0
+margin_bottom = 677.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Current Level: Level XXX[/center]"
+text = "Current Level: Level XXX"
+scroll_active = false
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="index_pressed" from="LevelSelectPopup" to="." method="_on_LevelSelectPopup_index_pressed"]
+[connection signal="pressed" from="LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]

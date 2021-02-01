@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Nodes/LabelTimer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameScene.gd" type="Script" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://Popups/Virus.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Popups/Alert.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Other/OutlineHover.tres" type="StyleBox" id=19]
+[ext_resource path="res://Other/Font.tres" type="DynamicFont" id=20]
+[ext_resource path="res://Textures/Quit.png" type="Texture" id=21]
+[ext_resource path="res://Popups/CountingGame.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Textures/Timer.png" type="Texture" id=23]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -48,7 +52,6 @@ margin_top = 124.0
 margin_right = 1043.0
 margin_bottom = 670.0
 popup_exclusive = true
-window_title = "Testing"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -79,7 +82,7 @@ folder_tex = ExtResource( 3 )
 file_tex = ExtResource( 10 )
 solution_tex = ExtResource( 14 )
 empty_tex = ExtResource( 13 )
-popups = [ ExtResource( 8 ), ExtResource( 18 ), ExtResource( 17 ) ]
+popups = [ ExtResource( 8 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 22 ) ]
 
 [node name="Timer" type="Timer" parent="Panel/ItemList"]
 wait_time = 60.0
@@ -110,9 +113,9 @@ __meta__ = {
 
 [node name="RestartButton" type="TextureButton" parent="Panel"]
 margin_left = 765.266
-margin_top = 170.596
+margin_top = 214.596
 margin_right = 816.266
-margin_bottom = 218.596
+margin_bottom = 262.596
 texture_normal = ExtResource( 9 )
 expand = true
 stretch_mode = 4
@@ -120,19 +123,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LabelTimer" type="Label" parent="Panel"]
-margin_left = 258.885
-margin_top = 497.958
-margin_right = 394.885
-margin_bottom = 540.958
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Time left: 0 s"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CloseButton" type="Button" parent="Panel"]
+visible = false
 margin_left = 808.0
 margin_top = 8.94055
 margin_right = 848.0
@@ -146,6 +138,69 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CloseButton2" type="Button" parent="Panel"]
+margin_left = 808.0
+margin_top = 9.0
+margin_right = 851.0
+margin_bottom = 49.0
+custom_styles/hover = ExtResource( 19 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = ExtResource( 19 )
+custom_styles/disabled = ExtResource( 15 )
+custom_styles/normal = ExtResource( 15 )
+icon = ExtResource( 21 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowTitle" type="Label" parent="Panel"]
+margin_left = 0.370056
+margin_top = -24.2996
+margin_right = 854.37
+margin_bottom = 6.70039
+grow_horizontal = 2
+mouse_filter = 1
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lorem Ipsumsdafzsdfdsfsadfsadfd"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerHolder" type="Control" parent="Panel"]
+margin_left = 42.4264
+margin_top = -1.41422
+margin_right = 82.4264
+margin_bottom = 38.5858
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerTex" type="Sprite" parent="Panel/TimerHolder"]
+position = Vector2( 437.059, 511.89 )
+scale = Vector2( 0.177361, 0.177361 )
+texture = ExtResource( 23 )
+
+[node name="LabelTimer" type="Label" parent="Panel/TimerHolder"]
+margin_left = 409.0
+margin_top = 495.0
+margin_right = 501.0
+margin_bottom = 528.0
+custom_fonts/font = ExtResource( 20 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0 s"
+align = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LoseDialog" type="AcceptDialog" parent="."]
 visible = true
 margin_left = 604.048
@@ -154,6 +209,9 @@ margin_right = 731.048
 margin_bottom = 515.322
 popup_exclusive = true
 window_title = "You Lose!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="LoseDialog"]
 stream = ExtResource( 4 )
@@ -177,6 +235,7 @@ stream = ExtResource( 11 )
 [connection signal="pressed" from="Panel/UpButton" to="Panel/ItemList" method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Panel/RestartButton" to="." method="restart"]
 [connection signal="pressed" from="Panel/CloseButton" to="." method="exit"]
+[connection signal="pressed" from="Panel/CloseButton2" to="." method="exit"]
 [connection signal="about_to_show" from="LoseDialog" to="LoseDialog/AudioStreamPlayer" method="play"]
 [connection signal="popup_hide" from="LoseDialog" to="." method="restart"]
 [connection signal="about_to_show" from="WinDialog" to="WinDialog/AudioStreamPlayer" method="play"]
