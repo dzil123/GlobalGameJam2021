@@ -40,7 +40,7 @@ is_solution = false
 
 [resource]
 script = ExtResource( 1 )
-time = 60.0
+time = 40.0
 num_folders = 20
 num_files = 100
 min_folder_depth = 1

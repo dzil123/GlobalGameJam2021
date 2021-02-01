@@ -39,8 +39,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Bad Computer"
+config/description="Created for Global Game Jam 2021
+
+Oops! You just lost all your important files!
+
+Can you FIND the LOST yellow folders in time?"
 run/main_scene="res://Scenes/StartMenu.tscn"
-config/icon="res://Textures/icon.png"
+config/icon="res://Textures/Thumbnail.png"
 
 [audio]
 
